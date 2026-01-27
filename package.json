@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-	"dev": "node src/server.ts" 
+    "dev": "tsx src/server.ts"
   },
-  "keywords": [],
+  "keywords": [ ],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.15.1",
