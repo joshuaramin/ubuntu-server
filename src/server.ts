@@ -6,7 +6,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", (req, res, next) => {
-  res.send("Hello world");
+  res.json({ message: "Hello world" });
 });
 
 app.listen(4000, "0.0.0.0", () => {
