@@ -12,13 +12,14 @@ app.get("/health", (req, res) => {
 });
 
 setInterval(() => {
-  const health = {
-    status: "ok",
-    uptime: process.uptime(),
-    memoryUsage: process.memoryUsage(),
+  if (global.gc) global.gc(); // Force garbage collection
+  const mem = process.memoryUsage();
+  console.log("[HEALTH]", {
+    heapUsedMB: (mem.heapUsed / 1024 / 1024).toFixed(2),
+    heapTotalMB: (mem.heapTotal / 1024 / 1024).toFixed(2),
+    rssMB: (mem.rss / 1024 / 1024).toFixed(2),
     timestamp: new Date(),
-  };
-  console.log("[HEALTH]", JSON.stringify(health));
+  });
 }, 60 * 1000);
 
 app.use(express.json());
