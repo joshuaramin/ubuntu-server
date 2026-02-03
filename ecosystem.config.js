@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "my-server",
-      script: "npm",
+      script: "pnpm",
       args: "start",
       watch: false, // disable watch in production
       env: {
